@@ -11,24 +11,24 @@ colors:
   # Nord
   normal:
     black: "#4C566A"
-    red: "#bf616a"
-    green: "#A3BE8C"
-    yellow: "#D7BA7D"
-    blue: "#5e81ac"
-    magenta: "#B48EAD"
-    cyan: "#88c0d0"
-    white: "#abb2bf"
+    red: "#CB4446"
+    green: "#22C888"
+    yellow: "#CDB27B"
+    blue: "#5396CF"
+    magenta: "#BC81BA"
+    cyan: "#28B1D4"
+    white: "#E1E5EC"
 
   # Bright colors
   bright:
     black: "#4C566A"
-    red: "#bf616a"
-    green: "#A3BE8C"
+    red: "#CB4446"
+    green: "#22C888"
     yellow: "#D7BA7D"
-    blue: "#5e81ac"
-    magenta: "#B48EAD"
-    cyan: "#88c0d0"
-    white: "#abb2bf"
+    blue: "#5396CF"
+    magenta: "#BC81BA"
+    cyan: "#28B1D4"
+    white: "#E1E5EC"
 
   # normal:
   #   black: "#4b5263"
@@ -40,7 +40,7 @@ colors:
   #   cyan: "#56B6C2"
   #   white: "#abb2bf"
  
-   # Bright colors
+  # Bright colors
   # bright:
   #   black: "#4b5263"
   #   red: "#e06c75"
