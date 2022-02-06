@@ -37,7 +37,8 @@ floating_modifier $mod
 
 # start a $myTerm
 set $myTerm st
-bindsym $mod+t exec alacritty
+# bindsym $mod+t exec alacritty
+bindsym $mod+t exec kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -100,7 +101,7 @@ bindsym $mod+Ctrl+b exec $myTerm -e 'bmenu'
 bindsym $mod+F1 exec firefox
 bindsym $mod+F2 exec emacs
 bindsym $mod+F3 exec discord
-bindsym $mod+F5 exec $myTerm -e 'mocp'
+bindsym $mod+F4 exec pcmanfm
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec ~/sh/full-ss.sh
 bindsym $mod+Print exec ~/sh/cur-win-ss.sh
@@ -181,14 +182,16 @@ bindsym $mod+Ctrl+Left workspace prev
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
 
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
-set $ws7 7
-set $ws8 8
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -311,14 +314,15 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom --config ~/.config/picom/picom.conf
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id xset led on; xset -led 14; xset s off -dpms; xset r rate 300 50;
 exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id numlockx off
-exec --no-startup-id discord; picom;
+exec --no-startup-id picom
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
+exec --no-startup-id discord
+
 # exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
@@ -367,8 +371,8 @@ set_from_resource $term_color15    color15
 #############################
 
 # Set inner/outer gaps
-gaps inner 10
-gaps outer 0
+gaps inner 7
+gaps outer 2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -380,7 +384,7 @@ gaps outer 0
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-# smart_borders off
+smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. 
 # Choose o or i for modifying outer/inner gaps.

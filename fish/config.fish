@@ -267,7 +267,7 @@ alias rm='rm -i'
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias lynx='lynx -cfg=~/.lynx/lynx.cfg -lss=~/.lynx/lynx.lss -vikeys'
-alias vifm='./.config/vifm/scripts/vifmrun'
+alias vifm='/home/robinop/.config/vifm/scripts/vifmrun'
 alias ncmpcpp='ncmpcpp ncmpcpp_directory=$HOME/.config/ncmpcpp/'
 alias mocp='mocp -M "$XDG_CONFIG_HOME"/moc -O MOCDir="$XDG_CONFIG_HOME"/moc'
 
@@ -279,6 +279,9 @@ alias pscpu='ps auxf | sort -nr -k 3'
 
 # Merge Xresources
 alias merge='xrdb -merge ~/.Xresources'
+
+# Custom Alias
+alias todo='nvim ~/Documents/notes/todo.md'
 
 # git
 alias addup='git add -u'
@@ -330,7 +333,7 @@ alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 # alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 # bare git repo alias for dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+# alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 # termbin
 alias tb="nc termbin.com 9999"
@@ -351,3 +354,5 @@ alias tips="lbrynet txo spend --type=support --is_not_my_input --blocking"
 # Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
 # Or install it from the Arch User Repository: shell-color-scripts
 colorscript random
+
+thefuck --alias | source

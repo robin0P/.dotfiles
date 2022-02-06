@@ -658,7 +658,7 @@ interval = 1
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
 date = " %d-%m-%Y"
-time = %H:%M:%S
+time = %I:%M %p
 format =%{A1:gsimplecal:} <label> %{A}
 format-prefix = " "
 format-prefix-foreground = #c1941a
