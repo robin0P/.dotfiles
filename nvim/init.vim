@@ -1,4 +1,4 @@
-""" Optixal's Neovim Init.vim
+"" Optixal's Neovim Init.vim
 
 """ Vim-Plug
 call plug#begin()
@@ -35,7 +35,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'numToStr/Comment.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'alvan/vim-closetag'
@@ -65,6 +64,7 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
 set incsearch ignorecase smartcase hlsearch
 set wildmode=longest,list,full wildmenu
 set ruler laststatus=2 showcmd showmode
+set clipboard+=unnamedplus
 set list listchars=trail:»,tab:»-
 set fillchars+=vert:\ 
 set wrap breakindent
@@ -76,24 +76,24 @@ set title
 
 """ Coloring
 
-" Functions and autocmds to run whenever changing colorschemes
-" function! TransparentBackground()
-"     highlight Normal guibg=NONE ctermbg=NONE
-"     highlight LineNr guibg=NONE ctermbg=NONE
-"     set fillchars+=vert:\│
-"     highlight VertSplit gui=NONE guibg=NONE guifg=#444444 cterm=NONE ctermbg=NONE ctermfg=gray
-" endfunction
-
- " function! DraculaPMenu()
- "     highlight Pmenu guibg=#363948
- "     highlight PmenuSbar guibg=#363948
+ " Functions and autocmds to run whenever changing colorschemes
+ " function! TransparentBackground()
+ "     highlight Normal guibg=NONE ctermbg=NONE
+ "     highlight LineNr guibg=NONE ctermbg=NONE
+ "     set fillchars+=vert:\│
+ "     highlight VertSplit gui=NONE guibg=NONE guifg=#444444 cterm=NONE ctermbg=NONE ctermfg=gray
  " endfunction
-
- " augroup MyColors
- "     autocmd!
- "     autocmd ColorScheme dracula call DraculaPMenu()
- "     autocmd ColorScheme * call TransparentBackground() " uncomment if you are using a translucent terminal and you want nvim to use that
- " augroup END
+ "
+ "  function! DraculaPMenu()
+ "      highlight Pmenu guibg=#363948
+ "      highlight PmenuSbar guibg=#363948
+ "  endfunction
+ "
+ "  augroup MyColors
+ "      autocmd!
+ "      autocmd ColorScheme dracula call DraculaPMenu()
+ "      autocmd ColorScheme * call TransparentBackground() " uncomment if you are using a translucent terminal and you want nvim to use that
+ "  augroup END
 
 "Main Coloring Configurations
   syntax on
@@ -114,6 +114,28 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
 let g:airline_section_warning = ''
 "let g:airline#extensions#tabline#enabled = 1 " Uncomment to display buffer tabline above
+
+" Discord Rich Presence configuration
+" General options
+let g:presence_auto_update         = 1
+let g:presence_neovim_image_text   = "The One True Text Editor"
+let g:presence_main_image          = "file"
+let g:presence_client_id           = "793271441293967371"
+let g:presence_log_level           = 'error'
+let g:presence_debounce_timeout    = 10
+let g:presence_enable_line_number  = 0
+let g:presence_blacklist           = []
+let g:presence_buttons             = 1
+let g:presence_file_assets         = {}
+
+" Rich Presence text options
+let g:presence_editing_text        = "Working on %s"
+let g:presence_file_explorer_text  = "Browsing %s"
+let g:presence_git_commit_text     = "Committing Changes"
+let g:presence_plugin_manager_text = "Managing Plugins"
+let g:presence_reading_text        = "Looking at %s"
+let g:presence_workspace_text      = "Workspace: %s"
+let g:presence_line_number_text    = "Line %s/%s"
 
 " Neovim :Terminal
 tmap <Esc> <C-\><C-n>
@@ -259,7 +281,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Color Scheme
 highlight LineNr guifg = #9c9c9c
-highlight Comment guifg = #6272A4
 highlight Pmenu guibg= #000000
 
 " Symbol renaming.
@@ -280,10 +301,10 @@ augroup end
 " coc.vim END
 
 " signify
-let g:signify_sign_add = '│'
-let g:signify_sign_delete = '│'
-let g:signify_sign_change = '│'
-hi DiffDelete guifg=#ff5555 guibg=none
+" let g:signify_sign_add = '│'
+" let g:signify_sign_delete = '│'
+" let g:signify_sign_change = '│'
+" hi DiffDelete guifg=#ff5555 guibg=none
 
 " FixCursorHold for better performance
 let g:cursorhold_updatetime = 100
@@ -349,7 +370,7 @@ function! ColorNord()
     color nord
 endfunction
 
-""" Custom Mappings
+"" Custom Mappings
 
 let mapleader=","
 nmap <leader>$s <C-w>s<C-w>j:terminal<CR>:set nonumber<CR><S-a>
@@ -374,7 +395,7 @@ nmap <leader>a gaip*
 nmap <leader>s :Rg<CR>
 nmap <leader>d :Files  <CR>
 nmap <leader>f :BLines<CR>
-nmap <leader>g :Goyo<CR>:highlight LineNr guifg = #9c9c9c<CR>:highlight Pmenu guifg = #000000<CR>
+nmap <leader>g :Goyo<CR>:highlight LineNr guifg = #9c9c9c<CR>:highlight Pmenu guibg = #000000<CR>
 nmap <leader>h :RainbowParentheses!!<CR>
 nmap <leader>j :set filetype=journal<CR>
 nmap <leader>k :ColorToggle<CR>
