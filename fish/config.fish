@@ -14,7 +14,7 @@ set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
 
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
-set TERM "xterm-256color"                         # Sets the terminal type
+set TERM "kitty"                                  # Sets the terminal type
 set EDITOR "emacsclient -t -a ''"                 # $EDITOR use Emacs in terminal
 set VISUAL "emacsclient -c -a emacs"              # $VISUAL use Emacs in GUI mode
 
@@ -282,6 +282,10 @@ alias merge='xrdb -merge ~/.Xresources'
 
 # Custom Alias
 alias todo='nvim ~/Documents/notes/todo.md'
+alias donut='~/projects/Miscellaneous/donut'
+
+# Kitty
+alias icat = 'kitty +kitten icat'
 
 # git
 alias addup='git add -u'
